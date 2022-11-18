@@ -6,6 +6,9 @@ const expressLayouts= require('express-ejs-layouts');
 
 app.use(express.static('./assets'))
 app.use(expressLayouts)
+app.set('layout extractStyles',true)
+app.set('layout extractScripts',true)
+
 app.use('/',require('./routes'))
 
 // let choose our view or template directory as public
