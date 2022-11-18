@@ -3,5 +3,8 @@ module.exports.profile=function(req,res){
 }
 
 module.exports.home=function(req,res){
-    res.end("<h1> user home</h1>")
+    // res.end("<h1> user home</h1>")
+    return res.render('user_profile',{
+        title:"user profile"
+    })
 }
