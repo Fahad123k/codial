@@ -10,5 +10,8 @@ module.exports.para=function(req,res){
 
 
 module.exports.home=function(req,res){
+    console.log(typeof(req.cookies))
+    var cookies1=req.cookies
+    console.log(Object.keys(cookies1).length)
     return res.render('home',{title:"sweet home"})
 }

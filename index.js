@@ -1,14 +1,17 @@
 const express = require('express')
-const app = express()
+const app = express();
+const CookieParser=require('cookie-parser')
 const port = 8000
 const path=require('path')
 const expressLayouts= require('express-ejs-layouts');
 const db= require('./config/mongoose')
+
+app.use(express.urlencoded());
+app.use(CookieParser());
 app.use(express.static('./assets'))
 app.use(expressLayouts)
 app.set('layout extractStyles',true)
 app.set('layout extractScripts',true)
-
 app.use('/',require('./routes'))
 
 // let choose our view or template directory as public
