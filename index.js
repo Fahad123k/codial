@@ -26,20 +26,24 @@ app.set('view engine','ejs')
 // create a new folder for view
 app.set('views',path.join(__dirname,'views'))
 
-
+// middleware takes session cokies and encriptsit
 app.use(session({
     name:'codial',
-    // tod change the secret before deployment in the producon
+    // todo change the secret before deployment in the producon
     secret:'blahSomething',
+    // 
     saveUninitialized:false,
     resave:false,
     cookie:{
+        // total in minutes=100
         maxAge:(1000*60*100)
     }
 }))
 
+// initialize passport
 app.use(passport.initialize());
 app.use(passport.session())
+app.use(passport.setAuthenticatedUser)
 
 app.use('/',require('./routes'))
 
