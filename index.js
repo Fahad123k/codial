@@ -10,12 +10,8 @@ const session = require('express-session');
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy');
 
-const MongoStore =  require('connect-mongo')(session);
+const MongoStore =require('connect-mongo');
 
-
-// const connectMongo =require('connect-mongo'); 
- 
-// const MongoStore =  connectMongo(session);
 
 app.use(express.urlencoded());
 app.use(CookieParser());
@@ -34,29 +30,47 @@ app.set('views', path.join(__dirname, 'views'))
 
 // middleware takes session cokies and encriptsit
 // mongo store is used to store the session cookie in the db
-app.use(session({
-    name: 'codial',
-    // todo change the secret before deployment in the producon
-    secret: 'blahSomething',
-    // 
-    saveUninitialized: false,
-    resave: false,
-    cookie: {
-        // total in minutes=100
-        maxAge: (1000 * 60 * 100)
-    },
 
-   store: new MongoStore(
-        {
-            mongooseConnection: db,
-            autoRemove: 'disabled'
-        
-        },
-        function(err){
-            console.log(err ||  'connect-mongodb setup ok');
-        }
-    )
-}))
+
+
+app.use(session({
+    name: 'codeial',
+    secret: 'blahsomething',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create(
+        { 
+            mongoUrl: 'mongodb://localhost/codeial_development',
+        ttl: 14 * 24 * 60 * 60,
+        autoRemove: 'native'
+     },
+     function(err){
+        console.log(err ||'connect-mongodb setup ok');
+    }
+        )
+}));
+
+// older version
+// app.use(session({
+//     name: 'codeial',
+//     // TODO change the secret before deployment in production mode
+//     secret: 'blahsomething',
+//     saveUninitialized: false,
+//     resave: false,
+//     cookie: {
+//         maxAge: (1000 * 60 * 100)
+//     },
+//     store: new MongoStore(
+//         {
+//             mongooseConnection: db,
+//             autoRemove: 'disabled'
+
+//         },
+        // function(err){
+        //     console.log(err ||'connect-mongodb setup ok');
+        // }
+//     )
+// }));
 
 // initialize passport
 app.use(passport.initialize());
