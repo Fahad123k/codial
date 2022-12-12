@@ -20,8 +20,5 @@ body form {
     text-align: center;
     margin: 5px 5px;
     border-radius: 4px;
-    border: none; }
-  body form input:hover {
-    background-color: #4da810; }
-  body form input:active {
-    background-color: #db2a2a; }
+    border: none;
+    width: 10%; }
