@@ -7,6 +7,7 @@ module.exports.home = function (req, res) {
     })
 }
 
+
 module.exports.profile = function (req, res) {
     return res.render('profile', {
         title: "user profile"

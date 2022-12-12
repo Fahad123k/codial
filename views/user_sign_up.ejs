@@ -1,13 +1,17 @@
-<a href="/users"> Go back</a>
+<!-- <a href="/"> </a>Home -->
 
-<h1>sign up</h1>
 
-<!-- sendind data bcz use post -->
+<div class="container-signUp">
+    <h1>sign up</h1>
 
-<form action="/users/create" method="post">
-    <input type="text" name="name" id="" placeholder="Your Names" required>
-    <input type="email" name="email" id="" placeholder="Your Email" required>
-    <input type="password" name="password" id="" placeholder="Your Password" required>
-    <input type="password" name="Confirm_password" id="" placeholder="Confirm password" required>
-    <input type="submit" value="Sign Up">
-</form>
+    <!-- sendind data bcz use post -->
+    
+    <form action="/users/create" method="post" class="form-container">
+        <input type="text" name="name" id="" placeholder="Your Names" required>
+        <input type="email" name="email" id="" placeholder="Your Email" required>
+        <input type="password" name="password" id="" placeholder="Your Password" required>
+        <input type="password" name="Confirm_password" id="" placeholder="Confirm password" required>
+        <input type="submit" value="Register" id="RegisterBtn">
+    </form>
+</div>
+

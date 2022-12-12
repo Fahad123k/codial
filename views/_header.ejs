@@ -1,12 +1,12 @@
 <header>
     <div class="container">
         <div class="title">
-            codeial
+            <a href="/">codeial</a>
         </div>
         <div class="links-container">
             <ul>
                 <% if(locals.user){ %>
-                    <li><a href="/users/profile"><%= user.name %> </a></li>
+                    <li id="username"><a href="/users/profile"><%= user.name %> </a></li>
                     <li><a href="/users/sign-out">Sign Out</a></li>
         
                     <% }else { %>

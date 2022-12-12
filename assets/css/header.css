@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', sans-serif; }
   body .container {
     background-color: #3658f0;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     color: white; }
@@ -17,12 +17,21 @@ body {
       margin-left: 10px;
       font-size: 2rem;
       text-transform: uppercase; }
+      body .container .title a {
+        color: white;
+        text-decoration: none; }
     body .container .links-container {
       width: 20%; }
       body .container .links-container ul {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly; }
+        body .container .links-container ul #username {
+          background-color: #0026ff;
+          padding: 2px 5px;
+          text-align: center;
+          width: 60px;
+          height: 20px; }
         body .container .links-container ul li {
           list-style: none; }
           body .container .links-container ul li a {

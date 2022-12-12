@@ -1,2 +1,4 @@
 body {
-  background-color: beige; }
+  background-color: #c5d0f0; }
+  body #layout-main {
+    height: 100%; }

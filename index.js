@@ -23,6 +23,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix:  '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
 }));
+
 app.use(express.urlencoded());
 app.use(CookieParser());
 app.use(express.static('./assets'))
